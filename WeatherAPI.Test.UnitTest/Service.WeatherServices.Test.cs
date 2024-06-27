@@ -24,7 +24,8 @@ namespace WeatherAPI.Test.UnitTest
             var config = new WeatherAPIConfiguration
             {
                 DefaultObservationStationId = 456,
-                RelativePath = "test/<WMO>/data.json"
+                RelativePath = "test/<WMO>/data.json",
+                FilterPreviousHours = -72
             };
             _configMock = new Mock<IOptions<WeatherAPIConfiguration>>();
             _configMock.Setup(c => c.Value).Returns(config);

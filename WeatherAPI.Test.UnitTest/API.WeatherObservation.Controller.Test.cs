@@ -180,7 +180,7 @@ namespace WeatherAPI.Test.UnitTest
             Assert.Multiple(() =>
             {
                 Assert.That(result.StatusCode, Is.EqualTo(StatusCodes.Status404NotFound));
-                Assert.That(result.Value, Is.EqualTo($"No record found for the Observation Station ID: {observationStationId}"));
+                Assert.That(result.Value, Is.EqualTo($"No record found for the Observation Station ID: {observationStationId}. Field: testfield"));
             });
         }
 

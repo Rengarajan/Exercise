@@ -1,0 +1,24 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="HotChocolate.AspNetCore" Version="13.9.6" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="8.0.6" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="Refit" Version="7.1.1" />
+    <PackageReference Include="Refit.HttpClientFactory" Version="7.1.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\WeatherAPI.Business\WeatherAPI.Business.csproj" />
+    <ProjectReference Include="..\WeatherAPI.GraphQL.Models\WeatherAPI.GraphQLModels.csproj" />
+    <ProjectReference Include="..\WeatherAPI.Shared\WeatherAPI.Shared.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="GraphQL" Version="7.8.0" />
+    <PackageReference Include="GraphQL.Primitives" Version="6.1.0" />
+    <PackageReference Include="HotChocolate.AspNetCore" Version="13.9.6" />
+    <PackageReference Include="HotChocolate.Types" Version="13.9.6" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\WeatherAPI.Business\WeatherAPI.Business.csproj" />
+  </ItemGroup>
+
+</Project>

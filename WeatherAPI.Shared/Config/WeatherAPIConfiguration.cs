@@ -16,5 +16,7 @@ namespace WeatherAPI.Shared.Config
 
         [Required(ErrorMessage = "The DefaultObservationStationId field is required.")]
         public int DefaultObservationStationId { get; init; }
+        [Required(ErrorMessage = "The FilterPreviousHours field is required.")]
+        public int FilterPreviousHours { get; init; }
     }
 }

@@ -71,10 +71,10 @@ namespace WeatherAPI.Business.Services
                 int defaultObservationStationId = _config.DefaultObservationStationId;
                 observationStationId ??= defaultObservationStationId;
                 var response = await GetObservationData(observationStationId);
-
+                int filterPreviousHours = _config.FilterPreviousHours;
                 var averageTemperatureRecords = response?
-                                     // Filtering records where Wmo id matches observationStationId
-                                     .Where(record => record.Wmo == observationStationId && DateTime.ParseExact(record.Local_Date_Time_Full, "yyyyMMddHHmmss", null) >= DateTime.UtcNow.AddHours(-72))
+                                     // Filtering records where Wmo id matches observationStationId and for previuos 72 hours data.
+                                     .Where(record => record.Wmo == observationStationId && DateTime.ParseExact(record.Local_Date_Time_Full, "yyyyMMddHHmmss", null) >= DateTime.UtcNow.AddHours(filterPreviousHours))
                                      // Group filtered records by Wmo
                                      .GroupBy(record => record.Wmo) 
                                      .Select(group => new WeatherStationAverageTemparature

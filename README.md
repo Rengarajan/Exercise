@@ -11,7 +11,7 @@ The API can be accessed using the following URLs:
 
 - Swagger: https://localhost:7138/swagger/index.html
 - Retrieve all data: https://localhost:7138/SouthAustraliaWeatherObservation/GetWeatherObservationData
-- Retrieve specific data: https://localhost:7138/SouthAustraliaWeatherObservation/GetWeatherObservationData?observationStationId=95676&field=name,air_temp
+- Retrieve specific data: [https://localhost:7138/SouthAustraliaWeatherObservation/GetWeatherObservationData?observationStationId=95676&field=name,air_temp,dewpt]
 - Retrieve average temperature: https://localhost:7138/SouthAustraliaWeatherObservation/GetWeatherObservationAverageTempature?observationStationId=95676
 
 - GraphQL Support 

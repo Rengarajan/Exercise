@@ -37,6 +37,16 @@ namespace WeatherAPI.Test.UnitTest
                 new WeatherStationRecord { Wmo = 123, Name = "Station A", Air_Temp = 13.5 },
                 new WeatherStationRecord { Wmo = 123, Name = "Station A", Air_Temp = 15.2 },
                 new WeatherStationRecord { Wmo = 123, Name = "Station A", Air_Temp = 7.8 },};
+            DateTime now = DateTime.UtcNow;
+            Random random = new Random();
+
+            // Set Local_Date_Time_Full within the last 72 hours
+            foreach (var record in weatherStationRecords)
+            {
+                DateTime randomDateTimeWithin72Hours = now.AddHours(-random.Next(0, 72));
+                record.Local_Date_Time_Full = randomDateTimeWithin72Hours.ToString("yyyyMMddHHmmss");
+            }
+
             var expectedData = weatherStationRecords;
 
             _weatherServiceMock.Setup(service => service.GetObservationData(observationStationId))
@@ -67,6 +77,15 @@ namespace WeatherAPI.Test.UnitTest
                 new WeatherStationRecord { Wmo = 123, Name = "Station A", Air_Temp = 13.5 },
                 new WeatherStationRecord { Wmo = 123, Name = "Station A", Air_Temp = 15.2 },
                 new WeatherStationRecord { Wmo = 123, Name = "Station A", Air_Temp = 7.8 },};
+            DateTime now = DateTime.UtcNow;
+            Random random = new Random();
+
+            // Set Local_Date_Time_Full within the last 72 hours
+            foreach (var record in weatherStationRecords)
+            {
+                DateTime randomDateTimeWithin72Hours = now.AddHours(-random.Next(0, 72));
+                record.Local_Date_Time_Full = randomDateTimeWithin72Hours.ToString("yyyyMMddHHmmss");
+            }
             var expectedData = weatherStationRecords;
 
             _weatherServiceMock.Setup(service => service.GetObservationData(observationStationId))
@@ -107,6 +126,15 @@ namespace WeatherAPI.Test.UnitTest
                 new WeatherStationRecord { Wmo = 123, Name = "Station A", Air_Temp = 13.5 },
                 new WeatherStationRecord { Wmo = 123, Name = "Station A", Air_Temp = 15.2 },
                 new WeatherStationRecord { Wmo = 123, Name = "Station A", Air_Temp = 7.8 },};
+            DateTime now = DateTime.UtcNow;
+            Random random = new Random();
+
+            // Set Local_Date_Time_Full within the last 72 hours
+            foreach (var record in weatherStationRecords)
+            {
+                DateTime randomDateTimeWithin72Hours = now.AddHours(-random.Next(0, 72));
+                record.Local_Date_Time_Full = randomDateTimeWithin72Hours.ToString("yyyyMMddHHmmss");
+            }
             var expectedData = weatherStationRecords;
 
             _weatherServiceMock.Setup(service => service.GetObservationData(observationStationId))

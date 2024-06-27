@@ -36,21 +36,28 @@ namespace WeatherAPI.Test.UnitTest
         public async Task GetObservationData_WithValidObservationStationId_ReturnsData()
         {
             // Arrange
-            int observationStationId = 123; 
-          
-            var response = new Response
-            {
-                Observations = new Observations
-                {
-                    Data = new List<WeatherStationRecord>
-                {
-                    new WeatherStationRecord { Wmo = 123,Name="station1",Air_Temp=12.6,Dewpt=24.2},
+            int observationStationId = 123;
+            List<WeatherStationRecord> weatherStationRecords = new(){
+                new WeatherStationRecord { Wmo = 123,Name="station1",Air_Temp=12.6,Dewpt=24.2},
                     new WeatherStationRecord { Wmo = 123,Name="station1",Air_Temp=14.4,Dewpt=22.3},
                     new WeatherStationRecord { Wmo = 123,Name="station1",Air_Temp=13.3,Dewpt=24.5},
                     new WeatherStationRecord { Wmo = 123,Name="station1",Air_Temp=16.7,Dewpt=25.7},
                     new WeatherStationRecord { Wmo = 123,Name="station1",Air_Temp=11.3,Dewpt=27.8},
-                    new WeatherStationRecord { Wmo = 123,Name="station1",Air_Temp=13.8,Dewpt=21.1},
-                }
+                    new WeatherStationRecord { Wmo = 123,Name="station1",Air_Temp=13.8,Dewpt=21.1},};
+            DateTime now = DateTime.UtcNow;
+            Random random = new Random();
+
+            // Set Local_Date_Time_Full within the last 72 hours
+            foreach (var record in weatherStationRecords)
+            {
+                DateTime randomDateTimeWithin72Hours = now.AddHours(-random.Next(0, 72));
+                record.Local_Date_Time_Full = randomDateTimeWithin72Hours.ToString("yyyyMMddHHmmss");
+            }
+            var response = new Response
+            {
+                Observations = new Observations
+                {
+                    Data = weatherStationRecords
                 }
             };
 
@@ -69,21 +76,28 @@ namespace WeatherAPI.Test.UnitTest
         {
             // Arrange
             int observationStationId = 123;
-          
+            List<WeatherStationRecord> weatherStationRecords = new(){
+                new WeatherStationRecord { Wmo = 123,Name="station1",Air_Temp=12.6,Dewpt=24.2},
+                    new WeatherStationRecord { Wmo = 123,Name="station1",Air_Temp=14.4,Dewpt=22.3},
+                    new WeatherStationRecord { Wmo = 123,Name="station1",Air_Temp=13.3,Dewpt=24.5},
+                    new WeatherStationRecord { Wmo = 123,Name="station1",Air_Temp=16.7,Dewpt=25.7},
+                    new WeatherStationRecord { Wmo = 123,Name="station1",Air_Temp=11.3,Dewpt=27.8},
+                    new WeatherStationRecord { Wmo = 123,Name="station1",Air_Temp=13.8,Dewpt=21.1},};
+            DateTime now = DateTime.UtcNow;
+            Random random = new Random();
+
+            // Set Local_Date_Time_Full within the last 72 hours
+            foreach (var record in weatherStationRecords)
+            {
+                DateTime randomDateTimeWithin72Hours = now.AddHours(-random.Next(0, 72));
+                record.Local_Date_Time_Full = randomDateTimeWithin72Hours.ToString("yyyyMMddHHmmss");
+            }
 
             var response = new Response
             {
                 Observations = new Observations
                 {
-                    Data = new List<WeatherStationRecord>
-                {
-                    new WeatherStationRecord { Wmo = 123,Name="station1",Air_Temp=12.6,Dewpt=24.2},
-                    new WeatherStationRecord { Wmo = 123,Name="station1",Air_Temp=14.4,Dewpt=22.3},
-                    new WeatherStationRecord { Wmo = 123,Name="station1",Air_Temp=13.3,Dewpt=24.5},
-                    new WeatherStationRecord { Wmo = 123,Name="station1",Air_Temp=16.7,Dewpt=25.7},
-                    new WeatherStationRecord { Wmo = 123,Name="station1",Air_Temp=11.3,Dewpt=27.8},
-                    new WeatherStationRecord { Wmo = 123,Name="station1",Air_Temp=13.8,Dewpt=21.1},
-                }
+                    Data = weatherStationRecords
                 }
             };
 

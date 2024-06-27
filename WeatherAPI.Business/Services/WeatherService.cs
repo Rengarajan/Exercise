@@ -74,7 +74,7 @@ namespace WeatherAPI.Business.Services
 
                 var averageTemperatureRecords = response?
                                      // Filtering records where Wmo id matches observationStationId
-                                     .Where(record => record.Wmo == observationStationId)
+                                     .Where(record => record.Wmo == observationStationId && DateTime.ParseExact(record.Local_Date_Time_Full, "yyyyMMddHHmmss", null) >= DateTime.UtcNow.AddHours(-72))
                                      // Group filtered records by Wmo
                                      .GroupBy(record => record.Wmo) 
                                      .Select(group => new WeatherStationAverageTemparature

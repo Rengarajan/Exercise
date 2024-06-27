@@ -20,7 +20,7 @@ namespace WeatherAPI.Shared.Models
         public string? Local_Date_Time { get; set; }
 
         [JsonProperty("local_date_time_full")]
-        public string? Local_Date_Time_Full { get; set; }
+        public string Local_Date_Time_Full { get; set; }
 
         [JsonProperty("aifstime_utc")]
         public string? Aifstime_Utc { get; set; }

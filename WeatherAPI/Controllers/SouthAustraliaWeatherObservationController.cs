@@ -41,14 +41,14 @@ namespace WeatherAPI.Controllers
                 if (record == null || record.Count == 0)
                 {
                     _logger.LogInformation("No record found for Observation Station ID: {observationStationId}", observationStationId);
-                    return NotFound($"No record found for the Observation Station ID: {observationStationId}");
+                    return NotFound($"No record found for the Observation Station ID: {observationStationId}. {(field != null ? $"Field: {field}" : "")}");
                 }
 
                 var fieldList = await FilterObservationDataAsync(record, field);
                 if (fieldList.Count == 0)
                 {
                     _logger.LogInformation("No matching fields found for Observation Station ID: {observationStationId}", observationStationId);
-                    return NotFound($"No record found for the Observation Station ID: {observationStationId}");
+                    return NotFound($"No record found for the Observation Station ID: {observationStationId}. {(field != null ? $"Field: {field}" : "")}");
                 }
 
                 return Ok(fieldList);
